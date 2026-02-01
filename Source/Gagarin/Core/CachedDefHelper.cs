@@ -55,8 +55,7 @@ namespace Gagarin
                 ? inheritanceNode : null
             });
         }
-
-        public static void Save()
+       public static void Save()
         {
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
@@ -131,10 +130,14 @@ namespace Gagarin
             };
             using StringReader input = new StringReader(File.ReadAllText(GagarinEnvironmentInfo.UnifiedXmlFilePath));
             using XmlReader xmlReader = XmlReader.Create(input, settings);
-            LoadableXmlAsset defaultLoadable = new LoadableXmlAsset(Context.Core.Name, GagarinEnvironmentInfo.UnifiedXmlFilePath, "<Empty />")
-            {
-                mod = Context.Core
-            };
+            // Go back and check the 1.5 version to see which one it is actually targeting
+            // LoadableXmlAsset defaultLoadable = new LoadableXmlAsset(Context.Core.Name, GagarinEnvironmentInfo.UnifiedXmlFilePath, "<Empty />")
+            // {
+            //     mod = Context.Core
+            // };
+            //LoadableXmlAsset defaultLoadable = new LoadableXmlAsset(Path.GetFileName(GagarinEnvironmentInfo.UnifiedXmlFilePath), "<Empty />");
+            FileInfo cacheFileInfo = new FileInfo(GagarinEnvironmentInfo.UnifiedXmlFilePath);
+            LoadableXmlAsset defaultLoadable = new LoadableXmlAsset(cacheFileInfo, Context.Core);
             string path;
             XmlNode defXml;
             assets.Clear();

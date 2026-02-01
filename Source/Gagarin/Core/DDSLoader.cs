@@ -207,11 +207,11 @@ namespace Gagarin.Core
                 // and we are creating a DXT5 or DXT1 texture
                 // Then you get an Unity error on the "new Texture"
 
-                int quality = QualitySettings.masterTextureLimit;
+                int quality = QualitySettings.globalTextureMipmapLimit;
 
                 // If the bug conditions are present then switch to full quality
                 if (isCompressed && quality > 0 && (dwWidth >> quality) % 4 != 0 && (dwHeight >> quality) % 4 != 0)
-                    QualitySettings.masterTextureLimit = 0;
+                    QualitySettings.globalTextureMipmapLimit = 0;
 
                 Texture2D texture = new Texture2D(dwWidth, dwHeight, textureFormat, dwMipMapCount > 1);
                 texture.LoadRawTextureData(dxtBytes);

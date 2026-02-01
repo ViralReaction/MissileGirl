@@ -15,7 +15,7 @@ namespace Gagarin
         {
             Context.RunningMods  = LoadedModManager.RunningMods.ToList();
             Context.Core         = LoadedModManager.RunningMods.First(m => m.IsCoreMod);
-            
+
             if (!Directory.Exists(GagarinEnvironmentInfo.CacheFolderPath))
             {
                 Directory.CreateDirectory(GagarinEnvironmentInfo.CacheFolderPath);
@@ -42,11 +42,11 @@ namespace Gagarin
             {
                 Log.Warning("GAGARIN: <color=green>Cache not found or got purged!</color>");
             }
-            RocketMan.Logger.Message("GAGARIN: <color=green>Loading cache settings!</color>");
+            Logger.Message("GAGARIN: <color=green>Loading cache settings!</color>");
             RunningModsSetUtility.Dump(Context.RunningMods, GagarinEnvironmentInfo.ModListFilePath);
 
             GagarinSettings.LoadSettings();
-            if (GagarinPrefs.CacheCreationTime == null || DateTime.Now.Subtract(GagarinPrefs.CacheCreationTime).Days >= 2)
+            if (DateTime.Now.Subtract(GagarinPrefs.CacheCreationTime).Days >= 2)
             {
                 GagarinPrefs.CacheCreationTime = default(DateTime);
                 Context.IsUsingCache = false;
@@ -62,6 +62,7 @@ namespace Gagarin
                 Log.Message("GAGARIN: <color=red>Gagarin is disabled!</color>");
             }
         }
+
 
         private static Assembly ResolveHandler(object sender, ResolveEventArgs e)
         {
@@ -86,5 +87,6 @@ namespace Gagarin
 
             CachedDefHelper.Clean();
         }
+
     }
 }

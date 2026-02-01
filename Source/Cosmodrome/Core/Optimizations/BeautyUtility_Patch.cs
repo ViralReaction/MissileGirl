@@ -59,7 +59,7 @@ namespace RocketMan.Patches
             }
         }
 
-        [RocketPatch(typeof(Pawn_NeedsTracker), nameof(Pawn_NeedsTracker.NeedsTrackerTick))]
+        [RocketPatch(typeof(Pawn_NeedsTracker), nameof(Pawn_NeedsTracker.NeedsTrackerTickInterval))]
         public class Pawn_NeedsTracker_Patch
         {
             public static void Prefix(Pawn_NeedsTracker __instance)

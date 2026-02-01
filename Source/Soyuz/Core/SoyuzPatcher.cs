@@ -45,11 +45,11 @@ namespace Soyuz
         }
 
         [Main.OnInitialization]
-        public static void Intialize()
+        public static void Initialize()
         {
             IEnumerable<Type> flaggedTypes = GetPatchTypes();
             LogTypesToFile(flaggedTypes);
-            List<SoyuzPatchInfo> patchList = new List<SoyuzPatchInfo>();
+            List<SoyuzPatchInfo> patchList = [];
             foreach (var type in flaggedTypes)
             {
                 SoyuzPatchInfo patch = new SoyuzPatchInfo(type);

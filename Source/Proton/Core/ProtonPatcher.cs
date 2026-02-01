@@ -39,13 +39,16 @@ namespace Proton
         [Main.OnDefsLoaded]
         public static void PatchAll()
         {
+
             foreach (var patch in patches)
-                patch.Patch(harmony);            
+            {
+               patch.Patch(harmony);
+            }
             RocketEnvironmentInfo.ProtonLoaded = true;
         }
 
         [Main.OnInitialization]
-        public static void Intialize()
+        public static void Initialize()
         {
             IEnumerable<Type> flaggedTypes = GetPatchTypes();
             LogTypesToFile(flaggedTypes);
@@ -54,7 +57,10 @@ namespace Proton
             {
                 ProtonPatchInfo patch = new ProtonPatchInfo(type);
                 patchList.Add(patch);
-                if (RocketDebugPrefs.Debug) RocketMan.Logger.Message($"PROTON: found patch in {type} and is {(patch.IsValid ? "valid" : "invalid") }");
+                if (RocketDebugPrefs.Debug)
+                {
+                    Logger.Message($"PROTON: found patch in {type} and is {(patch.IsValid ? "valid" : "invalid")}");
+                }
             }
             patches = patchList.Where(p => p.IsValid).ToArray();
         }
