@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Runtime.CompilerServices;
 using RimWorld;
-using RocketMan;
-using RocketMan.Tabs;
 using Verse;
 
 namespace Proton
@@ -60,7 +56,7 @@ namespace Proton
                     return true;
                 if (avgT >= Context.Settings.executionTimeLimit)
                     return false;
-                float elapsedSeconds = ((float)stopwatch.ElapsedTicks / Stopwatch.Frequency);
+                float elapsedSeconds = (float)stopwatch.ElapsedTicks / Stopwatch.Frequency;
                 if (avgT > 2.5f)
                     return elapsedSeconds > Math.Min(30f * (avgT - 1.5f), 60);
                 if (elapsedSeconds <= Context.Settings.minInterval)
@@ -71,14 +67,10 @@ namespace Proton
             }
         }
 
-        public AlertSettings()
-        {
-        }
-
         public AlertSettings(string typeId)
         {
             this.typeId = typeId;
-            this.Setup();
+            Setup();
         }
 
         public void UpdatePerformanceMetrics(float t)
@@ -134,23 +126,55 @@ namespace Proton
         {
             string temp = typeId.ToLower();
             if (temp.Contains("lowfood"))
+            {
                 ignored = true;
-            if (temp.Contains("majororextreem"))
+                return;
+            }
+            if (temp.Contains("majorextreme"))
+            {
                 ignored = true;
-            if (temp.Contains("extreem"))
+                return;
+            }
+            if (temp.Contains("extreme"))
+            {
                 ignored = true;
+                return;
+            }
             if (temp.Contains("needdoctor"))
+            {
                 ignored = true;
+                return;
+            }
             if (temp.Contains("starvation"))
+            {
                 ignored = true;
+                return;
+            }
             if (temp.Contains("lifethreateninghediff"))
+            {
                 ignored = true;
+                return;
+            }
             if (temp.Contains("hypothermia"))
+            {
                 ignored = true;
+                return;
+            }
             if (temp.Contains("heatstroke"))
+            {
                 ignored = true;
+                return;
+            }
             if (temp.Contains("needresearchproject"))
+            {
                 ignored = true;
+                return;
+            }
+            if (temp.Contains("lowoxygen"))
+            {
+                ignored = true;
+                return;
+            }
         }
     }
 }

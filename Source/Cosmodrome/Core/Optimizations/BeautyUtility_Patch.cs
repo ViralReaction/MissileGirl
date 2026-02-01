@@ -20,7 +20,7 @@ namespace RocketMan.Patches
         public class BeautyUtility_FillBeautyRelevantCells_Patch
         {
             static FieldInfo fSampleNumCells_Beauty = AccessTools.Field(typeof(BeautyUtility), nameof(BeautyUtility.SampleNumCells_Beauty));
-            static MethodInfo mGetSampleNumCells = AccessTools.Method(typeof(BeautyUtility_FillBeautyRelevantCells_Patch), nameof(BeautyUtility_FillBeautyRelevantCells_Patch.GetSampleNumCells));
+            static MethodInfo mGetSampleNumCells = AccessTools.Method(typeof(BeautyUtility_FillBeautyRelevantCells_Patch), nameof(GetSampleNumCells));
 
             static int MinSampleNumCells = GenRadial.NumCellsInRadius(2.6f);
             static int MaxSampleNumCells = GenRadial.NumCellsInRadius(6.9f);            
