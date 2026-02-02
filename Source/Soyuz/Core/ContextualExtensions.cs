@@ -254,7 +254,9 @@ namespace Soyuz
                 // if (pawn.def.race.Humanlike)
                 // return (RocketPrefs.TimeDilationColonists || RocketPrefs.TimeDilationVisitors) && IsValidHuman(pawn);
                 if (pawn.def.race.Animal)
+                {
                     return Context.DilationEnabled[pawn.def.index] && IsValidAnimal(pawn);
+                }
             }
             return false;
         }

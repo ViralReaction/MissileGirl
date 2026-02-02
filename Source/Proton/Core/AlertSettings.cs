@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
+using JetBrains.Annotations;
 using RimWorld;
 using Verse;
 
@@ -65,6 +66,12 @@ namespace Proton
                     return true;
                 return 10f * avgT <= elapsedSeconds / 4.0f;
             }
+        }
+
+        [UsedImplicitly]
+        public AlertSettings()
+        {
+
         }
 
         public AlertSettings(string typeId)

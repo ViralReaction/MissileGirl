@@ -1,7 +1,5 @@
-﻿using HarmonyLib;
-using RocketMan;
+﻿using RocketMan;
 using Verse;
-
 namespace Soyuz.Patches
 {
     [SoyuzPatch(typeof(CameraDriver), nameof(CameraDriver.Update))]
@@ -12,7 +10,9 @@ namespace Soyuz.Patches
             Context.ZoomRange = __instance.CurrentZoom;
             Context.CurViewRect = __instance.CurrentViewRect;
             if (RocketDebugPrefs.Debug && RocketDebugPrefs.StatLogging)
-                RocketMan.Logger.Message($"SOYUZ: Zoom range is {Context.ZoomRange}");
+            {
+                Logger.Message($"SOYUZ: Zoom range is {Context.ZoomRange}");
+            }
         }
     }
 }
