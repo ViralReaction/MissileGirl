@@ -20,7 +20,8 @@ namespace MissileGirl.Tabs
         public override string Label => KeyedResources.MissileGirl_Tab;
         public override bool ShouldShow => true;
 
-        private Texture2D Graphic => field ??= ContentFinder<Texture2D>.Get("MissileGirl/UI/missilegirl_main_nobackground", true);
+        private Texture2D _graphic;
+        private Texture2D Graphic => _graphic ??= ContentFinder<Texture2D>.Get("MissileGirl/UI/missilegirl_main_nobackground", true);
 
         private const float BannerHeight = 200f;
         private const float BannerGap = 15f;

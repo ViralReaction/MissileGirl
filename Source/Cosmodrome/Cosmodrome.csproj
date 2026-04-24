@@ -6,7 +6,7 @@
         <TargetFramework>net481</TargetFramework>
         <LangVersion>latest</LangVersion>
         <PlatformTarget>x64</PlatformTarget>
-        <OutputPath>..\..\1.5\Assemblies</OutputPath>
+        <OutputPath>..\..\1.6\Assemblies</OutputPath>
         <Optimize>true</Optimize>
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
         <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
@@ -51,7 +51,7 @@
         <Folder Include="Core\GUI\Graphs\"/>
     </ItemGroup>
     <ItemGroup>
-        <None Include="..\..\1.5\**\*.xml" CopyToOutputDirectory="Never">
+        <None Include="..\..\1.6\**\*.xml" CopyToOutputDirectory="Never">
             <Link>Assets\%(RecursiveDir)/%(FileName)%(Extension)</Link>
         </None>
         <None Include="..\..\About\*.xml" CopyToOutputDirectory="Never">
@@ -104,61 +104,55 @@
         </Compile>
     </ItemGroup>
     <ItemGroup>
-        <None Update="..\..\1.5\Defs\MainButton.xml">
+        <None Update="..\..\1.6\Defs\MainButton.xml">
             <Link>Assets\Defs\\MainButton.xml</Link>
         </None>
-        <None Update="..\..\1.5\Extras\RocketRules_Notify.xml">
+        <None Update="..\..\1.6\Extras\RocketRules_Notify.xml">
             <Link>Assets\Extras\\RocketRules_Notify.xml</Link>
         </None>
-        <None Update="..\..\1.5\Extras\RocketRules_Packages.xml">
+        <None Update="..\..\1.6\Extras\RocketRules_Packages.xml">
             <Link>Assets\Extras\\RocketRules_Packages.xml</Link>
         </None>
-        <None Update="..\..\1.5\Extras\RocketRules_Incompatibilities.xml">
+        <None Update="..\..\1.6\Extras\RocketRules_Incompatibilities.xml">
             <Link>Assets\Extras\\RocketRules_Incompatibilities.xml</Link>
         </None>
-        <None Update="..\..\1.5\Defs\KeyBinding.xml">
+        <None Update="..\..\1.6\Defs\KeyBinding.xml">
             <Link>Assets\Defs\\KeyBinding.xml</Link>
         </None>
-        <None Update="..\..\1.5\Assemblies\BCnEncoder.NET.ImageSharp.xml">
-            <Link>Assets\Assemblies\\BCnEncoder.NET.ImageSharp.xml</Link>
-        </None>
-        <None Update="..\..\1.5\Plugins\Experimental\BCnEncoder.NET.ImageSharp.xml">
-            <Link>Assets\Plugins\Experimental\\BCnEncoder.NET.ImageSharp.xml</Link>
-        </None>
-        <None Update="..\..\1.5\Patches\MothballFix.xml">
+        <None Update="..\..\1.6\Patches\MothballFix.xml">
             <Link>Assets\Patches\\MothballFix.xml</Link>
         </None>
-        <None Update="..\..\1.5\Languages\Korean\Keyed\Translations.xml">
+        <None Update="..\..\1.6\Languages\Korean\Keyed\Translations.xml">
             <Link>Assets\Languages\Korean\Keyed\\Translations.xml</Link>
         </None>
-        <None Update="..\..\1.5\Languages\ChineseSimplified\Keyed\Translations.xml">
+        <None Update="..\..\1.6\Languages\ChineseSimplified\Keyed\Translations.xml">
             <Link>Assets\Languages\ChineseSimplified\Keyed\\Translations.xml</Link>
         </None>
-        <None Update="..\..\1.5\Languages\ChineseSimplified\DefInjected\KeyBindingCategoryDef\KeyBinding.xml">
+        <None Update="..\..\1.6\Languages\ChineseSimplified\DefInjected\KeyBindingCategoryDef\KeyBinding.xml">
             <Link>Assets\Languages\ChineseSimplified\DefInjected\KeyBindingCategoryDef\\KeyBinding.xml</Link>
         </None>
-        <None Update="..\..\1.5\Languages\ChineseSimplified\DefInjected\MainButtonDef\MainButton.xml">
+        <None Update="..\..\1.6\Languages\ChineseSimplified\DefInjected\MainButtonDef\MainButton.xml">
             <Link>Assets\Languages\ChineseSimplified\DefInjected\MainButtonDef\\MainButton.xml</Link>
         </None>
-        <None Update="..\..\1.5\Languages\ChineseSimplified\DefInjected\KeyBindingDef\KeyBinding.xml">
+        <None Update="..\..\1.6\Languages\ChineseSimplified\DefInjected\KeyBindingDef\KeyBinding.xml">
             <Link>Assets\Languages\ChineseSimplified\DefInjected\KeyBindingDef\\KeyBinding.xml</Link>
         </None>
-        <None Update="..\..\1.5\Languages\ChineseSimplified\DefInjected\KeyBindingDef\KeyBindings_Add_MainTab.xml">
+        <None Update="..\..\1.6\Languages\ChineseSimplified\DefInjected\KeyBindingDef\KeyBindings_Add_MainTab.xml">
             <Link>Assets\Languages\ChineseSimplified\DefInjected\KeyBindingDef\\KeyBindings_Add_MainTab.xml</Link>
         </None>
-        <None Update="..\..\1.5\Languages\Russian\Keyed\Translations.xml">
+        <None Update="..\..\1.6\Languages\Russian\Keyed\Translations.xml">
             <Link>Assets\Languages\Russian\Keyed\\Translations.xml</Link>
         </None>
-        <None Update="..\..\1.5\Languages\English\Keyed\Translations.xml">
+        <None Update="..\..\1.6\Languages\English\Keyed\Translations.xml">
             <Link>Assets\Languages\English\Keyed\\Translations.xml</Link>
         </None>
-        <None Update="..\..\1.5\Languages\Portuguese\Keyed\Translations.xml">
+        <None Update="..\..\1.6\Languages\Portuguese\Keyed\Translations.xml">
             <Link>Assets\Languages\Portuguese\Keyed\\Translations.xml</Link>
         </None>
-        <None Update="..\..\1.5\Languages\Spanish\Keyed\Translations.xml">
+        <None Update="..\..\1.6\Languages\Spanish\Keyed\Translations.xml">
             <Link>Assets\Languages\Spanish\Keyed\\Translations.xml</Link>
         </None>
-        <None Update="..\..\1.5\Languages\Italian\Keyed\Translations.xml">
+        <None Update="..\..\1.6\Languages\Italian\Keyed\Translations.xml">
             <Link>Assets\Languages\Italian\Keyed\\Translations.xml</Link>
         </None>
     </ItemGroup>

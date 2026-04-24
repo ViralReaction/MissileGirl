@@ -40,7 +40,7 @@ namespace Gagarin
                 {
                     Context.IsUsingCache = false;
                     Logger.Debug("GAGARIN: Loading error", er);
-                    throw er;
+                    throw;
                 }
             }
 
@@ -71,7 +71,7 @@ namespace Gagarin
                 catch (Exception er)
                 {
                     Logger.Debug("GAGARIN: Loading error", er);
-                    throw er;
+                    throw;
                 }
             }
         }
@@ -122,7 +122,7 @@ namespace Gagarin
                 catch (Exception er)
                 {
                     Logger.Debug("GAGARIN: Loading error", er);
-                    throw er;
+                    throw;
                 }
             }
 
@@ -148,7 +148,7 @@ namespace Gagarin
                     catch (Exception er)
                     {
                         Logger.Debug("GAGARIN: Loading error", er);
-                        throw er;
+                        throw;
                     }
                 }
             }
@@ -172,7 +172,7 @@ namespace Gagarin
                     catch (Exception er)
                     {
                         Logger.Debug("GAGARIN: Loading error", er);
-                        throw er;
+                        throw;
                     }
                 }
             }
@@ -203,7 +203,7 @@ namespace Gagarin
                 catch (Exception er)
                 {
                     Logger.Debug("GAGARIN: Loading error", er);
-                    throw er;
+                    throw;
                 }
                 return true;
             }
@@ -220,7 +220,7 @@ namespace Gagarin
                     catch (Exception er)
                     {
                         Logger.Debug("GAGARIN: Loading error", er);
-                        throw er;
+                        throw;
                     }
                 }
             }

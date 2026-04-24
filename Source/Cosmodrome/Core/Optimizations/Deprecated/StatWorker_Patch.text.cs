@@ -62,7 +62,7 @@ namespace MissileGirl.Optimizations
         private static Dictionary<int, CachedUnit> cache = new Dictionary<int, CachedUnit>();
 
         private static MethodBase replacemant =
-            AccessTools.Method(typeof(StatWorker_GetValueUnfinalized_Hijacked_Patch), nameof(Replacemant));
+            AccessTools.Method(typeof(StatWorker_GetValueUnfinalized_Hijacked_Patch), nameof(Replacement));
 
         [StructLayout(LayoutKind.Sequential, Size = 12)]
         private struct CachedUnit
@@ -104,7 +104,7 @@ namespace MissileGirl.Optimizations
                 .ToHashSet();
         }
 
-        public static float Replacemant(StatRequest req, bool applyPostProcess)
+        public static float Replacement(StatRequest req, bool applyPostProcess)
         {
             return 0f;
         }

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
     <!-- General -->
     <MissileGirl.Settings>Configurações</MissileGirl.Settings>
@@ -13,7 +13,7 @@
     <MissileGirl.IncompatibilityWindow.Title>Você está usando mods incompatíveis
     </MissileGirl.IncompatibilityWindow.Title>
     <MissileGirl.IncompatibilityWindow.Description>Você está usando mods incompatíveis com o MissileGirl. Esse tipo de
-        incompatibilidade vai destruir seu save! Você pode desabiliar o MissileGirl ou continuar por sua própria conta e
+        incompatibilidade vai destruir seu save! Você pode desabilitar o MissileGirl ou continuar por sua própria conta e
         risco.\nIncompatibilidades atuais são:\n
     </MissileGirl.IncompatibilityWindow.Description>
     <MissileGirl.IncompatibilityWindow.Continue>Sim, eu entendo! Continuar!</MissileGirl.IncompatibilityWindow.Continue>
@@ -61,7 +61,7 @@
     </MissileGirl.ProgressBar.Description>
     <MissileGirl.Junk>Lixo</MissileGirl.Junk>
     <MissileGirl.CorpseRemoval>Remoção automática de corpos.</MissileGirl.CorpseRemoval>
-    <MissileGirl.CorpseRemoval.Description>Essa configuração remove corpos que não estão vísveis por um tempo, e que não
+    <MissileGirl.CorpseRemoval.Description>Essa configuração remove corpos que não estão visíveis por um tempo, e que não
         estão perto de sua base, para não quebrar o balanceamento do jogo.
     </MissileGirl.CorpseRemoval.Description>
     <MissileGirl.GameSpeed>Configurações de velocidade de jogo</MissileGirl.GameSpeed>
@@ -85,7 +85,7 @@
     <Soyuz.Colored.IgnorePlayerFaction>Ignora facção do jogador</Soyuz.Colored.IgnorePlayerFaction>
     <Soyuz.Colored.IgnoreAllFaction>Ignora todas facções</Soyuz.Colored.IgnoreAllFaction>
     <Soyuz.Enable>Habilitar</Soyuz.Enable>
-    <Soyuz.GeneralTip>Você pode usar as configurações a baixo para consertar qualquer problemas com pawns que estão
+    <Soyuz.GeneralTip>Você pode usar as configurações abaixo para corrigir problemas com pawns que estão
         dilatados.
     </Soyuz.GeneralTip>
     <Soyuz.EnableTimeDilation>Habilitar dilatação temporal</Soyuz.EnableTimeDilation>
@@ -107,12 +107,12 @@
     <Soyuz.Current.IgnoreAllFactions>Ignorar todas facções</Soyuz.Current.IgnoreAllFactions>
     <Soyuz.Current.FastPawn>Esse pawn se move rápido demais para ser "desacelerado"</Soyuz.Current.FastPawn>
     <Soyuz.Current.Ignored>Esse pawn vai ser ignorado por:</Soyuz.Current.Ignored>
-    <Soyuz.Current.MoveSpeed>Esse tipo se move numa velocidade média de {0} celulas/segundos</Soyuz.Current.MoveSpeed>
+    <Soyuz.Current.MoveSpeed>Esse tipo se move numa velocidade média de {0} células/segundo</Soyuz.Current.MoveSpeed>
     <Soyuz.DilationDisabled>Dilatação temporal desabilitada!</Soyuz.DilationDisabled>
     <Soyuz.RaceName>Raça</Soyuz.RaceName>
     <Soyuz.PackageId>Mod pai</Soyuz.PackageId>
     <Soyuz.EnableDataLogging>Habilitar log de data</Soyuz.EnableDataLogging>
-    <Soyuz.Debug150MTPS>Muda o multiplicado de ticks para 150x</Soyuz.Debug150MTPS>
+    <Soyuz.Debug150MTPS>Define o multiplicador de ticks para 150x</Soyuz.Debug150MTPS>
     <Soyuz.FlashPawns>Piscar pawns dilatados</Soyuz.FlashPawns>
     <Soyuz.AlwaysDilate>Simular comportamento fora da tela</Soyuz.AlwaysDilate>
     <!-- Proton Proton.TabContent_Alerts -->
@@ -120,11 +120,11 @@
     <Proton.Colored.ActiveNow>Ativo agora</Proton.Colored.ActiveNow>
     <Proton.Colored.IgnoredAndBad>Ignorado e se comportando estranhamente</Proton.Colored.IgnoredAndBad>
     <Proton.Colored.DisabledOrBad>Desabilitado ou se comportando estranhamente</Proton.Colored.DisabledOrBad>
-    <Proton.Colored.Ignored>Ignoarado (para alertas críticos)</Proton.Colored.Ignored>
+    <Proton.Colored.Ignored>Ignorado (para alertas críticos)</Proton.Colored.Ignored>
     <Proton.Enable>Habilitar</Proton.Enable>
-    <Proton.DisalbeAllInfo>Se você tem o Dub's Performance Analyzer instalado, o MissileGirl irá sobrepor o seu sistema
+    <Proton.DisableAllInfo>Se você tem o Dub's Performance Analyzer instalado, o MissileGirl irá sobrepor o seu sistema
         de controle de alertas. Use esse aqui.
-    </Proton.DisalbeAllInfo>
+    </Proton.DisableAllInfo>
     <Proton.DisableAll.P1>DESABILITAR</Proton.DisableAll.P1>
     <Proton.DisableAll.P2>todos alertas</Proton.DisableAll.P2>
     <Proton.Disabled>Controles desabilitados</Proton.Disabled>
@@ -137,10 +137,10 @@
     <Proton.Avg>Tempo médio de execução</Proton.Avg>
     <Proton.TimeSinceLast>Tempo desde a última atualização</Proton.TimeSinceLast>
     <!-- Gagarin -->
-    <Gagarin.ParsingReports>MissileGirl está checando por qualquer base ou def duplicada</Gagarin.ParsingReports>
+    <Gagarin.ParsingReports>MissileGirl está checando bases ou defs duplicadas</Gagarin.ParsingReports>
     <Gagarin.Tab>Otimização do tempo de carregamento</Gagarin.Tab>
     <Gagarin.Expiry>O cache do Gagarin irá expirar em: {0} dias</Gagarin.Expiry>
-    <Gagarin.Tip>Enquanto o a otimização de tempo de carregamento estiver ativa, toda DEF XML será cacheada. Isso
+    <Gagarin.Tip>Enquanto a otimização de tempo de carregamento estiver ativa, toda DEF XML será cacheada. Isso
         permite que você pule o patching de XML. Você pode desabilitar isso no menu principal do MissileGirl
     </Gagarin.Tip>
     <Gagarin.ClearCache>Limpar cache</Gagarin.ClearCache>

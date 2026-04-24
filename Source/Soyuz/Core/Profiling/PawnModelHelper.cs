@@ -11,7 +11,7 @@ using System.Collections.Generic;
 using Soyuz;
 using Verse;
 
-namespace Soyus
+namespace Soyuz
 {
     //public static class PawnModelHelper<T> where T : IPawnModel
     //{

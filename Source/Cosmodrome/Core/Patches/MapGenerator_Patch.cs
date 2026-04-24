@@ -43,7 +43,7 @@ namespace MissileGirl
                 {
                     Logger.Debug("MissileGirl: Caught error while generating map", er);
                     if (RocketEnvironmentInfo.IsDevEnv && Prefs.DevMode)
-                        throw er;
+                        throw;
                 }
             }
         }

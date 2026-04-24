@@ -49,6 +49,10 @@ namespace MissileGirl
                 }
                 yield return codes[i];
             }
+            if (!finished)
+            {
+                throw new InvalidOperationException("MissileGirl: Failed to patch EditWindow_Log.DoMessagesListing; LogMessage.text load was not found.");
+            }
         }
     }
 }

@@ -124,9 +124,9 @@
     <Proton.Colored.DisabledOrBad>Deshabilitada o actuando mal</Proton.Colored.DisabledOrBad>
     <Proton.Colored.Ignored>Ignorada (para alertas críticas)</Proton.Colored.Ignored>
     <Proton.Enable>Activar</Proton.Enable>
-    <Proton.DisalbeAllInfo>Si tienes instalado el mod Dub's performance analyzer, MissileGirl reemplazará su sistema de
+    <Proton.DisableAllInfo>Si tienes instalado el mod Dub's performance analyzer, MissileGirl reemplazará su sistema de
         control de alertas. Usa este en su lugar.
-    </Proton.DisalbeAllInfo>
+    </Proton.DisableAllInfo>
     <Proton.DisableAll.P1>DESACTIVAR</Proton.DisableAll.P1>
     <Proton.DisableAll.P2>todas las alertas</Proton.DisableAll.P2>
     <Proton.Disabled>Controles desactivados</Proton.Disabled>

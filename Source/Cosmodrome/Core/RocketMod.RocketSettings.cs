@@ -64,8 +64,8 @@ namespace MissileGirl
                 }
                 catch (Exception er)
                 {
-                    Log.Error($"MissileGirl: Error in post srcibe {action} with error {er}");
-                    Logger.Debug("Error in post srcibe", exception: er);
+                    Log.Error($"MissileGirl: Error in post scribe {action} with error {er}");
+                    Logger.Debug("Error in post scribe", exception: er);
                 }
             }
         }

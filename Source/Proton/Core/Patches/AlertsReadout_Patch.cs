@@ -251,6 +251,10 @@ namespace Proton
                 }
                 yield return code;
             }
+            if (!finished)
+            {
+                throw new InvalidOperationException("PROTON: Failed to patch AlertsReadout.AlertsReadoutUpdate; CheckAddOrRemoveAlert call was not found.");
+            }
         }
 
         private static readonly Stopwatch stopwatch = new Stopwatch();
