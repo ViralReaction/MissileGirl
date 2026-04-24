@@ -63,6 +63,10 @@ namespace MissileGirl.Patches
                     }
                     yield return codes[i];
                 }
+                if (!finished)
+                {
+                    throw new InvalidOperationException("MissileGirl: Failed to patch BeautyUtility.FillBeautyRelevantCells; BeautyUtility.SampleNumCells_Beauty load was not found.");
+                }
             }
         }
 

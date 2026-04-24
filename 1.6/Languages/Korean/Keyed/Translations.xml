@@ -111,8 +111,8 @@
     <Proton.Colored.DisabledOrBad>비활성화되거나 비정상적으로 행동함</Proton.Colored.DisabledOrBad>
     <Proton.Colored.Ignored>무시됨(중요한 경고)</Proton.Colored.Ignored>
     <Proton.Enable>경고 제어 사용하기</Proton.Enable>
-    <Proton.DisalbeAllInfo>Dub's performance analyzer를 사용하고 있다면, 로켓맨은 해당 모드의 경고 설정 시스템을 덮어씌울 것입니다. 로켓맨의 경고 관리를 사용하세요.
-    </Proton.DisalbeAllInfo>
+    <Proton.DisableAllInfo>Dub's performance analyzer를 사용하고 있다면, 로켓맨은 해당 모드의 경고 설정 시스템을 덮어씌울 것입니다. 로켓맨의 경고 관리를 사용하세요.
+    </Proton.DisableAllInfo>
     <Proton.DisableAll.P1>비활성화 -</Proton.DisableAll.P1>
     <Proton.DisableAll.P2>모든 경고</Proton.DisableAll.P2>
     <Proton.Disabled>경고 제어 비활성화됨</Proton.Disabled>

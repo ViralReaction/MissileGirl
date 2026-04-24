@@ -141,7 +141,7 @@ namespace MissileGirl
             catch (Exception er)
             {
                 Logger.Debug($"{PluginName}: target type {type.Name}", exception: er);
-                throw er;
+                throw;
             }
         }
 

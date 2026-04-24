@@ -35,7 +35,7 @@ namespace MissileGirl
 
             if (RocketEnvironmentInfo.IsDevEnv)
             {
-                MissileGirl.Logger.Message($"MissileGirl: Dev enviroment detected! Loading experimental plugins!");
+                MissileGirl.Logger.Message($"MissileGirl: Dev environment detected! Loading experimental plugins!");
 
                 assemblies.AddRange(
                     LoadDirectory(RocketEnvironmentInfo.ExperimentalPluginsFolderPath).ToList()
@@ -98,7 +98,7 @@ namespace MissileGirl
             catch (Exception er)
             {
                 LogAssembliesInDomain();
-                Logger.Debug($"MissileGirl: ERROR loading assemlby {assemblyName}", exception: er);
+                Logger.Debug($"MissileGirl: ERROR loading assembly {assemblyName}", exception: er);
                 return null;
             }
         }

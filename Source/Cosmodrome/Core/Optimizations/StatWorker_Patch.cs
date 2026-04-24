@@ -28,18 +28,20 @@ namespace MissileGirl.Optimizations
     })]
     public static class StatWorker_Patch
     {
-        [StructLayout(LayoutKind.Sequential, Size = 12)]
+        [StructLayout(LayoutKind.Sequential, Size = 16)]
         private struct CachedUnit
         {
             public readonly float value;
             public readonly int signature;
             public readonly int tick;
+            public readonly int cacheVersion;
 
-            public CachedUnit(float value, int signature)
+            public CachedUnit(float value, int signature, int cacheVersion)
             {
                 this.value = value;
                 this.signature = signature;
                 this.tick = GenTicks.TicksGame;
+                this.cacheVersion = cacheVersion;
             }
         }
 
@@ -51,12 +53,14 @@ namespace MissileGirl.Optimizations
 
         private static Dictionary<int, CachedUnit> cache = new Dictionary<int, CachedUnit>();
 
+        private static int cacheVersion = 0;
+
         private static MethodBase mGetValueUnfinalized = AccessTools.Method(typeof(StatWorker), "GetValueUnfinalized", new[]
         {
             typeof(StatRequest), typeof(bool)
         });
 
-        private static MethodBase mGetValueUnfinalized_Replacemant = AccessTools.Method(typeof(StatWorker_Patch), nameof(StatWorker_Patch.Replacemant));
+        private static MethodBase mGetValueUnfinalized_Replacement = AccessTools.Method(typeof(StatWorker_Patch), nameof(StatWorker_Patch.Replacement));
 
         private static MethodBase mGetValueUnfinalized_Transpiler = AccessTools.Method(typeof(StatWorker_Patch), nameof(StatWorker_Patch.Transpiler));
 
@@ -170,21 +174,28 @@ namespace MissileGirl.Optimizations
         private static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions, MethodBase original)
         {
             var codes = instructions.ToList();
+            bool foundTargetCall = false;
             for (int i = 0; i < codes.Count; i++)
             {
                 var code = codes[i];
                 if (code.OperandIs(mGetValueUnfinalized))
                 {
+                    foundTargetCall = true;
                     MissileGirl.Logger.Message($"MissileGirl: Hijacking {original.GetMethodSummary()}");
                     break;
                 }
             }
-            return instructions.MethodReplacer(mGetValueUnfinalized, mGetValueUnfinalized_Replacemant);
+            if (!foundTargetCall)
+            {
+                Logger.Debug($"MissileGirl: Skipping stat cache hijack for {original.GetMethodSummary()} because StatWorker.GetValueUnfinalized was not found.");
+                return codes;
+            }
+            return codes.MethodReplacer(mGetValueUnfinalized, mGetValueUnfinalized_Replacement);
         }
 
         [SuppressMessage("CodeQuality", "IDE0051:Remove unused private members")]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static float Replacemant(StatWorker statWorker, StatRequest req, bool applyPostProcess)
+        private static float Replacement(StatWorker statWorker, StatRequest req, bool applyPostProcess)
         {
             if (RocketPrefs.Enabled
                     && (!statWorker.stat.cacheable || !statWorker.stat.immutable)
@@ -200,7 +211,9 @@ namespace MissileGirl.Optimizations
                 {
                     return UpdateCache(key, statWorker, req, applyPostProcess, tick, storeExists: false);
                 }
-                if (tick - store.tick - 1 > RocketStates.StatExpiry[statWorker.stat.index] || signature != store.signature)
+                if (store.cacheVersion != cacheVersion
+                        || tick - store.tick - 1 > RocketStates.StatExpiry[statWorker.stat.index]
+                        || signature != store.signature)
                 {
                     cache.Remove(key);
                     return UpdateCache(key, statWorker, req, applyPostProcess, tick, storeExists: true);
@@ -244,13 +257,32 @@ namespace MissileGirl.Optimizations
                     t - Mathf.Clamp(RocketPrefs.LearningRate * (T * a - t), -0.1f, 0.25f),
                     0f, 1024f);
             }
-            cache[key] = new CachedUnit(value, req.thingInt?.GetSignature() ?? -1);
+            cache[key] = new CachedUnit(value, req.thingInt?.GetSignature() ?? -1, cacheVersion);
             return value;
+        }
+
+        public static void ClearCache()
+        {
+            cache.Clear();
+            cacheVersion++;
+        }
+
+        [Main.OnWorldLoaded]
+        [Main.OnMapLoaded]
+        private static void ClearCacheOnLoad()
+        {
+            ClearCache();
+        }
+
+        [Main.OnMapDiscarded]
+        private static void ClearCacheOnMapDiscarded(Map map)
+        {
+            ClearCache();
         }
 
         private static void Cleanup()
         {
-            if (MAX_CACHE_SIZE < cache.Count) cache.Clear();
+            if (MAX_CACHE_SIZE < cache.Count) ClearCache();
         }
     }
 }

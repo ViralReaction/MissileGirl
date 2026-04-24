@@ -54,7 +54,7 @@ namespace Soyuz.Patches
                 }
                 if (!finished)
                 {
-                    throw new System.Exception();
+                    throw new InvalidOperationException("SOYUZ: Failed to patch WorldPawns.DefPreventingMothball; HediffDef.AlwaysAllowMothball call was not found.");
                 }
             }
 

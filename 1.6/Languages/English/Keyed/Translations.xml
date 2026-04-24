@@ -159,9 +159,9 @@
     <Proton.Colored.DisabledOrBad>Disabled or behaving badly</Proton.Colored.DisabledOrBad>
     <Proton.Colored.Ignored>Ignored (for critical alerts)</Proton.Colored.Ignored>
     <Proton.Enable>Enable</Proton.Enable>
-    <Proton.DisalbeAllInfo>If you have Dub's performance analyzer installed MissileGirl will override its alert control
+    <Proton.DisableAllInfo>If you have Dub's performance analyzer installed MissileGirl will override its alert control
         system. Use this one instead.
-    </Proton.DisalbeAllInfo>
+    </Proton.DisableAllInfo>
     <Proton.DisableAll.P1>DISABLE</Proton.DisableAll.P1>
     <Proton.DisableAll.P2>all alerts</Proton.DisableAll.P2>
     <Proton.Disabled>Controls disabled</Proton.Disabled>

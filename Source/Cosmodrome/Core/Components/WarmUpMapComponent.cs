@@ -106,7 +106,7 @@ namespace MissileGirl
             base.MapComponentTick();
             if (finished && GenTicks.TicksGame == integrityGameTick)
             {
-                MissileGirl.Logger.Message("MissileGirl: Position verfication started!");
+                MissileGirl.Logger.Message("MissileGirl: Position verification started!");
                 PopPawnsPosition();
                 if (RocketPrefs.PauseAfterWarmup && !Find.TickManager.Paused)
                     Find.TickManager.Pause();

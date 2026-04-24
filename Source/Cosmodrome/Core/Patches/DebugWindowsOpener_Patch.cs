@@ -56,6 +56,7 @@ namespace MissileGirl
         public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             bool patched = false;
+            bool replacedDrawButtons = false;
             foreach (CodeInstruction code in instructions)
             {
                 if (!patched && code.opcode == OpCodes.Ldc_R4 && 28f.Equals(code.operand))
@@ -70,9 +71,14 @@ namespace MissileGirl
                     {
                         labels = code.labels
                     };
+                    replacedDrawButtons = true;
                     continue;
                 }
                 yield return code;
+            }
+            if (!patched || !replacedDrawButtons)
+            {
+                Logger.Debug("MissileGirl: DebugWindowsOpener.DevToolStarterOnGUI patch did not find all expected IL anchors.");
             }
         }
     }

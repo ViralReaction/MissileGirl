@@ -1153,15 +1153,15 @@ namespace MissileGirl
                     _Proton_Enable : _Proton_Enable = "Proton.Enable".Translate();
         }
 
-        private static TaggedString _Proton_DisalbeAllInfo = null;
-        /// <summary> Keyed string with key <c>Proton.DisalbeAllInfo</c> with inner text set to:
+        private static TaggedString _Proton_DisableAllInfo = null;
+        /// <summary> Keyed string with key <c>Proton.DisableAllInfo</c> with inner text set to:
         ///
         /// <code>If you have Dub's performance analyzer installed MissileGirl will override its alert control system. Use this one instead.</code>
         /// </summary>       
-        public static TaggedString Proton_DisalbeAllInfo
+        public static TaggedString Proton_DisableAllInfo
         {
-            get => _Proton_DisalbeAllInfo != null ?
-                    _Proton_DisalbeAllInfo : _Proton_DisalbeAllInfo = "Proton.DisalbeAllInfo".Translate();
+            get => _Proton_DisableAllInfo != null ?
+                    _Proton_DisableAllInfo : _Proton_DisableAllInfo = "Proton.DisableAllInfo".Translate();
         }
 
         private static TaggedString _Proton_DisableAll_P1 = null;

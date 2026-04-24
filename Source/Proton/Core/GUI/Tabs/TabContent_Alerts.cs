@@ -71,10 +71,10 @@ namespace Proton
         public override void DoContent(Rect rect)
         {
             collapsible.Begin(rect, KeyedResources.MissileGirl_Settings);
-            collapsible.Label(KeyedResources.Proton_DisalbeAllInfo, invert: true);
+            collapsible.Label(KeyedResources.Proton_DisableAllInfo, invert: true);
             collapsible.CheckboxLabeled(KeyedResources.Proton_Enable, ref RocketPrefs.AlertThrottling);
             collapsible.Line(1);
-            collapsible.Label(KeyedResources.Proton_DisalbeAllInfo);
+            collapsible.Label(KeyedResources.Proton_DisableAllInfo);
             collapsible.Line(1);
             if (collapsible.CheckboxLabeled(KeyedResources.Proton_AlertsDisabled, ref RocketPrefs.DisableAllAlert, disabled: !RocketPrefs.AlertThrottling)
                     && RocketPrefs.DisableAllAlert)

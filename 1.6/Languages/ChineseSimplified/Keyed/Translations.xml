@@ -103,8 +103,8 @@
     <Proton.Colored.DisabledOrBad>已禁用或低性能</Proton.Colored.DisabledOrBad>
     <Proton.Colored.Ignored>忽略(属于关键警报)</Proton.Colored.Ignored>
     <Proton.Enable>启用警报配置</Proton.Enable>
-    <Proton.DisalbeAllInfo>若你已启用了Dub's performance这个Mod，MissileGirl会取代其警报配置的功能。
-    </Proton.DisalbeAllInfo>
+    <Proton.DisableAllInfo>若你已启用了Dub's performance这个Mod，MissileGirl会取代其警报配置的功能。
+    </Proton.DisableAllInfo>
     <Proton.DisableAll.P1>禁用</Proton.DisableAll.P1>
     <Proton.DisableAll.P2>所有警报</Proton.DisableAll.P2>
     <Proton.Disabled>已禁用配置</Proton.Disabled>
