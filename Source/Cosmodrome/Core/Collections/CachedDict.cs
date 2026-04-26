@@ -1,4 +1,4 @@
-﻿// // Copyright (c) 2026 ViralReaction
+// // Copyright (c) 2026 ViralReaction
 // //
 // // This program and the accompanying materials are made available under the
 // // terms of the Eclipse Public License 2.0 which is available at
@@ -7,6 +7,7 @@
 // // SPDX-License-Identifier: EPL-2.0
 
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using Verse;
@@ -97,7 +98,14 @@ namespace MissileGirl
 
         private void CleanUp()
         {
-            if (MAX_CACHE_SIZE < cache.Count) cache.Clear();
+            if (MAX_CACHE_SIZE < cache.Count)
+            {
+                var itemsToRemove = cache.OrderBy(kvp => kvp.Value.tick)
+                    .Take(cache.Count - MAX_CACHE_SIZE + 1000)
+                    .ToList();
+                foreach (var item in itemsToRemove)
+                    cache.Remove(item.Key);
+            }
         }
     }
 }
