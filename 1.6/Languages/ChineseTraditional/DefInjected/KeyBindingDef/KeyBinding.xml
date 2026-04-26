@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+    <RocketKeyBindingDisable.label>開關MissileGirl</RocketKeyBindingDisable.label>
+    <RocketKeyToggleAlerts.label>開關所有警報</RocketKeyToggleAlerts.label>
+    <RocketKeyToggleDebugging.label>開關MissileGirl debugging模式</RocketKeyToggleDebugging.label>
+    <RocketKeyToggleForcedSlowdowns.label>開關全侷限速</RocketKeyToggleForcedSlowdowns.label>
+
+
+</LanguageData>

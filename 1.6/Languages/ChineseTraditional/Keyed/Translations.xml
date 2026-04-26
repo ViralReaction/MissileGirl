@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+    <!-- General -->
+    <MissileGirl.Settings>設置</MissileGirl.Settings>
+    <MissileGirl.Settings.Debugging>Debug設置</MissileGirl.Settings.Debugging>
+    <MissileGirl.Collapsible.Expand>[展開]</MissileGirl.Collapsible.Expand>
+    <MissileGirl.Collapsible.Hide>[收起]</MissileGirl.Collapsible.Hide>
+    <MissileGirl.Selection>選項: {0}</MissileGirl.Selection>
+    <!-- MissileGirl -->
+    <MissileGirl.Settings.PleaseUnpause>請勿暫停遊戲...正在啟動MissileGirl!</MissileGirl.Settings.PleaseUnpause>
+    <MissileGirl.Settings.PleaseWait>請等待MissileGirl啟動完畢!</MissileGirl.Settings.PleaseWait>
+    <MissileGirl.IncompatibilityWindow.Title>存在與MissileGirl衝突的Mod</MissileGirl.IncompatibilityWindow.Title>
+    <MissileGirl.IncompatibilityWindow.Description>
+        你的Mod列表存在與MissileGirl衝突的Mod。該類兼容性問題會毀掉你的存檔!你可選擇禁用MissileGirl或繼續一意孤行。以下是衝突的Mod列表:\n
+    </MissileGirl.IncompatibilityWindow.Description>
+    <MissileGirl.IncompatibilityWindow.Continue>我已瞭解! 繼續遊戲!</MissileGirl.IncompatibilityWindow.Continue>
+    <MissileGirl.IncompatibilityWindow.OpenModManager>打開Mod配置</MissileGirl.IncompatibilityWindow.OpenModManager>
+    <MissileGirl.IncompatibilityWindow.Disclaimer>若你忽視這條警告或繼續，MissileGirl團隊不為後續問題提供任何技術支持!
+    </MissileGirl.IncompatibilityWindow.Disclaimer>
+    <MissileGirl.Alert_StatsLearning.Label>自適應模式已激活</MissileGirl.Alert_StatsLearning.Label>
+    <MissileGirl.Alert_StatsLearning.Explanation>自適應模式已啟用了 {0} 分鐘!僅建議在開新檔或更改Mod列表後啟用 {1}
+        分鐘。
+    </MissileGirl.Alert_StatsLearning.Explanation>
+    <MissileGirl.AdaptiveAlert.Label>啟用自適應模式警報</MissileGirl.AdaptiveAlert.Label>
+    <MissileGirl.AdaptiveAlert.Description>禁用該選項以關閉自適應模式警報。</MissileGirl.AdaptiveAlert.Description>
+    <MissileGirl.Unpause>請勿暫停遊戲!</MissileGirl.Unpause>
+    <MissileGirl.Warming>啟動中!請稍後...</MissileGirl.Warming>
+    <MissileGirl.HideProgressBar>此提示可在MissileGirl設置中隱藏/禁用</MissileGirl.HideProgressBar>
+    <!-- MissileGirl MissileGirl.TabContent_Settings -->
+    <MissileGirl.MissileGirl>MissileGirl</MissileGirl.MissileGirl>
+    <MissileGirl.Tab>主要功能</MissileGirl.Tab>
+    <MissileGirl.Close>關閉</MissileGirl.Close>
+    <MissileGirl.Enable>啟用</MissileGirl.Enable>
+    <MissileGirl.TranslationCaching>啟用翻譯緩存</MissileGirl.TranslationCaching>
+    <MissileGirl.Experimental>實驗性功能</MissileGirl.Experimental>
+    <MissileGirl.Experimental.Description>
+        以下為MissileGirl先行版功能，你可自行選擇調整。\n警告：若你不清楚後果請勿修改以下配置。
+    </MissileGirl.Experimental.Description>
+    <MissileGirl.Experimental.OptInBeta>MissileGirl先行版的可選配置</MissileGirl.Experimental.OptInBeta>
+    <MissileGirl.EnableGagarin>加快載入速度(更短的載入時間)</MissileGirl.EnableGagarin>
+    <MissileGirl.EnableGagarin.Tip>MissileGirl通過緩存Xml補丁文件的操作以嘗試加快載入遊戲的速度。
+        在啟用該選項後請重啟兩次遊戲，以便MissileGirl創建緩存。取決於啟用的Mod數量及Mod類型至多可縮減一半載入時間。建議在使用Combat
+        Extended或Doc universal這類大量使用Xml補丁的Mod時啟用。
+    </MissileGirl.EnableGagarin.Tip>
+    <MissileGirl.ShowIcon>顯示MissileGirl按鈕/圖標</MissileGirl.ShowIcon>
+    <MissileGirl.ShowIcon.Description>因受遊戲限制，部分設置無法在遊戲主界面的Mod選項中配置。
+    </MissileGirl.ShowIcon.Description>
+    <MissileGirl.ProgressBar>遊戲開始時顯示啟動進度條</MissileGirl.ProgressBar>
+    <MissileGirl.ProgressBar.Description>開啟此選項會在你載入新地圖時顯示啟動進度條。
+    </MissileGirl.ProgressBar.Description>
+    <MissileGirl.Junk>垃圾清理配置</MissileGirl.Junk>
+    <MissileGirl.CorpseRemoval>啟用自動清除屍體</MissileGirl.CorpseRemoval>
+    <MissileGirl.CorpseRemoval.Description>
+        為保持遊戲平衡性，該機制只會清除存在於視野外一段時間及非玩家基地(居住區)附近的屍體。
+    </MissileGirl.CorpseRemoval.Description>
+    <MissileGirl.GameSpeed>遊戲速度配置</MissileGirl.GameSpeed>
+    <MissileGirl.DisableForcedSlowdowns>禁用強制限速</MissileGirl.DisableForcedSlowdowns>
+    <MissileGirl.DisableForcedSlowdowns.Description>禁用遊戲中事件的強制限速。若已使用SmartSpeed則關閉此選項。
+    </MissileGirl.DisableForcedSlowdowns.Description>
+    <MissileGirl.StatCacheSettings>數據緩存配置</MissileGirl.StatCacheSettings>
+    <MissileGirl.Adaptive>自適應模式</MissileGirl.Adaptive>
+    <MissileGirl.Adaptive.Description>每當新開檔或更改Mod列表時啟用30分鐘後關閉。</MissileGirl.Adaptive.Description>
+    <MissileGirl.EnableGearStatCaching>緩存裝備狀態數據</MissileGirl.EnableGearStatCaching>
+    <MissileGirl.Debugging>啟用debugging</MissileGirl.Debugging>
+    <MissileGirl.Debugging.Description>僅適用於高級用戶及Mod作者</MissileGirl.Debugging.Description>
+    <!-- Soyuz Soyuz.TabContent_DilationSettings -->
+    <Soyuz.Tab>間隔擴增配置</Soyuz.Tab>
+    <Soyuz.Colored.Disabled>禁用</Soyuz.Colored.Disabled>
+    <Soyuz.Colored.IgnoredAndDisabled>忽略及禁用</Soyuz.Colored.IgnoredAndDisabled>
+    <Soyuz.Colored.IsFastMoving>高移速</Soyuz.Colored.IsFastMoving>
+    <Soyuz.Colored.IgnorePlayerFaction>忽略玩家派系</Soyuz.Colored.IgnorePlayerFaction>
+    <Soyuz.Colored.IgnoreAllFaction>忽略所有派系</Soyuz.Colored.IgnoreAllFaction>
+    <Soyuz.Enable>啟用</Soyuz.Enable>
+    <Soyuz.GeneralTip>你可調整以下設置來移除受限生物出現的問題。</Soyuz.GeneralTip>
+    <Soyuz.EnableTimeDilation>啟用間隔擴增</Soyuz.EnableTimeDilation>
+    <Soyuz.EnableTimeDilationVisitors>對訪客啟用間隔擴增</Soyuz.EnableTimeDilationVisitors>
+    <Soyuz.EnableTimeWorldPawns>對系統生物啟用間隔擴增</Soyuz.EnableTimeWorldPawns>
+    <Soyuz.EnableTimeCriticalHediffs>對即將崩潰人物啟用間隔擴增</Soyuz.EnableTimeCriticalHediffs>
+    <Soyuz.EnableTimeWildlife>對野外生物啟用間隔擴增</Soyuz.EnableTimeWildlife>
+    <Soyuz.EnableTimeColonyAnimals>對基地動物啟用間隔擴增</Soyuz.EnableTimeColonyAnimals>
+    <Soyuz.EnableTimeColonists>對殖民者啟用間隔擴增</Soyuz.EnableTimeColonists>
+    <Soyuz.EnableTimeColonists.Warning>
+        警告：高風險操作。不要啟用該選項除非Mod作者推薦啟用。啟用該選項可能會導致壞檔及不正常的表現
+    </Soyuz.EnableTimeColonists.Warning>
+    <Soyuz.Current.Enable>啟用</Soyuz.Current.Enable>
+    <Soyuz.Current.Tip>僅在你明確清楚更改設置的後果時再調整以下設置。這些選項可自定義所選的種族。</Soyuz.Current.Tip>
+    <Soyuz.Current.IgnorePlayerFaction>忽略玩家派系</Soyuz.Current.IgnorePlayerFaction>
+    <Soyuz.Current.IgnoreAllFactions>忽略所有派系</Soyuz.Current.IgnoreAllFactions>
+    <Soyuz.Current.FastPawn>該生物因移速過快而不受限制</Soyuz.Current.FastPawn>
+    <Soyuz.Current.Ignored>該生物不受限制，因為:</Soyuz.Current.Ignored>
+    <Soyuz.Current.MoveSpeed>此類生物的平均移速為 {0} 格/秒</Soyuz.Current.MoveSpeed>
+    <Soyuz.DilationDisabled>已禁用間隔擴增!</Soyuz.DilationDisabled>
+    <Soyuz.RaceName>種族</Soyuz.RaceName>
+    <Soyuz.PackageId>所屬Mod</Soyuz.PackageId>
+    <Soyuz.EnableDataLogging>開啟詳細日誌</Soyuz.EnableDataLogging>
+    <Soyuz.Debug150MTPS>將Tick倍數設為150倍</Soyuz.Debug150MTPS>
+    <Soyuz.FlashPawns>突出受限生物</Soyuz.FlashPawns>
+    <Soyuz.AlwaysDilate>模擬屏幕外的行為</Soyuz.AlwaysDilate>
+    <!-- Proton Proton.TabContent_Alerts -->
+    <Proton.Tab>警報配置</Proton.Tab>
+    <Proton.Colored.ActiveNow>正在運行</Proton.Colored.ActiveNow>
+    <Proton.Colored.IgnoredAndBad>忽略及低性能</Proton.Colored.IgnoredAndBad>
+    <Proton.Colored.DisabledOrBad>已禁用或低性能</Proton.Colored.DisabledOrBad>
+    <Proton.Colored.Ignored>忽略(屬於關鍵警報)</Proton.Colored.Ignored>
+    <Proton.Enable>啟用警報配置</Proton.Enable>
+    <Proton.DisalbeAllInfo>若你已啟用了Dub's performance這個Mod，MissileGirl會取代其警報配置的功能。
+    </Proton.DisalbeAllInfo>
+    <Proton.DisableAll.P1>禁用</Proton.DisableAll.P1>
+    <Proton.DisableAll.P2>所有警報</Proton.DisableAll.P2>
+    <Proton.Disabled>已禁用配置</Proton.Disabled>
+    <Proton.AlertsDisabled>禁用所有警報</Proton.AlertsDisabled>
+    <Proton.MaxIn>最大響應時間</Proton.MaxIn>
+    <Proton.MinUpdate>最小刷新間隔</Proton.MinUpdate>
+    <Proton.Enabled>啟用</Proton.Enabled>
+    <Proton.IgnoreThis>忽略此警報(將恢復為原版表現)</Proton.IgnoreThis>
+    <Proton.AlertName>警報名稱</Proton.AlertName>
+    <Proton.Avg>平均響應時間</Proton.Avg>
+    <Proton.TimeSinceLast>上次更新時間</Proton.TimeSinceLast>
+    <!-- Gagarin -->
+    <Gagarin.ParsingReports>MissileGirl正檢測是否存在重複的代碼文件(Bases/Defs)</Gagarin.ParsingReports>
+    <Gagarin.Tab>優化載入時間</Gagarin.Tab>
+    <Gagarin.Expiry>XML緩存將於 {0} 天后過期</Gagarin.Expiry>
+    <Gagarin.Tip>當啟用優化載入時間時，所有XML文件都會被緩存。該選項開啟後會跳過XML補丁操作。可在MissileGirl主菜單中禁用
+    </Gagarin.Tip>
+    <Gagarin.ClearCache>清空緩存</Gagarin.ClearCache>
+    <Gagarin.ClearCache.Description>
+        清空緩存可解決因XML文件緩存而導致的問題，以便Mod更新添加新貼圖到緩存中。\n建議每隔上方提示的天數清空一次緩存。
+    </Gagarin.ClearCache.Description>
+    <Gagarin.EnableTextureCaching>啟用貼圖緩存</Gagarin.EnableTextureCaching>
+    <Gagarin.EnableTextureCaching.Description>貼圖緩存可加速載入時間，但不兼容優化貼圖以及高清貼圖的Mod。
+    </Gagarin.EnableTextureCaching.Description>
+    <Gagarin.AdvancedSettings>高級設置</Gagarin.AdvancedSettings>
+    <Gagarin.AdvancedSettings.Description>請在明確自己行為後果後再調整以下內容！</Gagarin.AdvancedSettings.Description>
+    <Gagarin.FilterMode>Filter mode</Gagarin.FilterMode>
+    <Gagarin.MipMapBias>Mip map bias</Gagarin.MipMapBias>
+
+</LanguageData>
