@@ -32,6 +32,7 @@
         <li>Argon.VMEuP</li>
         <li>CETeam.CombatExtended</li>
         <li>Community.Psychology.UnofficialUpdate</li>
+        <li>co.uk.epicguru.meleeanimation</li>
     </loadAfter>
     <incompatibleWith>
         <li>rwmt.Multiplayer</li>

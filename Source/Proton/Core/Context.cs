@@ -15,12 +15,23 @@ namespace Proton
 {
     public static class Context
     {
+        public static readonly object settingsLock = new object();
         public static ProtonSettings settingsInt;
         public static ProtonSettings Settings
         {
-            get => settingsInt != null ? settingsInt : settingsInt = new ProtonSettings();
+            get
+            {
+                if (settingsInt == null)
+                {
+                    lock (settingsLock)
+                    {
+                        if (settingsInt == null)
+                            settingsInt = new ProtonSettings();
+                    }
+                }
+                return settingsInt;
+            }
             set => settingsInt = value;
-
         }
 
         public static Dictionary<string, AlertSettings> TypeIdToSettings = new Dictionary<string, AlertSettings>();
