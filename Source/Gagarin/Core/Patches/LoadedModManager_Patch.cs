@@ -186,8 +186,18 @@ namespace Gagarin
                         // M2b real-engine gate (dev-flag gated, no-op otherwise): the
                         // rebuilt Unified.xml now exists on disk, so prove the dirty set
                         // is a superset against it. Called here, right after Save, so the
-                        // ordering is deterministic.
+                        // ordering is deterministic. Runs BEFORE the sidecar capture below,
+                        // so it still reads the PRIOR sidecar (this run's files only become
+                        // the prior once Capture overwrites them).
                         DirtySetGate.Run();
+
+                        // Prior-state sidecar capture (master-toggle gated, no-op when
+                        // GAGARIN_INCREMENTAL_CACHE is off). Copy the cache files just written
+                        // above into a sidecar the author's startup teardown never deletes, so
+                        // they are available as the PRIOR load's state on the next run —
+                        // regardless of OnInitialization deleting the live cache on a modlist
+                        // change. This is what lets the diagnostic/gate read true priors.
+                        PriorStateSnapshot.Capture();
                     }
                     catch (Exception er)
                     {

@@ -45,8 +45,21 @@ namespace Gagarin
         private const string SnapshotFileName = "PriorUnified.snapshot.xml";
         private const string ReportFileName = "GateReport.json";
 
+        // Where the gate reads the PRIOR Unified.xml from. With the master toggle ON, the sidecar
+        // already holds the prior Unified (PriorStateSnapshot captured it at the end of the last
+        // load, outside the author's delete scope), so we read it there and skip the in-cache
+        // snapshot entirely — this is what makes the gate fire on a modlist change, where the
+        // live Unified.xml is deleted by OnInitialization before our Prefix could copy it. When
+        // the toggle is OFF we fall back to the legacy in-cache snapshot the Prefix makes.
         private static string SnapshotPath =>
-            Path.Combine(GagarinEnvironmentInfo.CacheFolderPath, SnapshotFileName);
+            PriorStateSnapshot.Available
+                ? PriorStateSnapshot.PriorUnifiedPath
+                : Path.Combine(GagarinEnvironmentInfo.CacheFolderPath, SnapshotFileName);
+
+        // Whether SnapshotPath points at the surviving sidecar copy (toggle ON) rather than the
+        // Prefix's in-cache snapshot. The sidecar is read-only prior state we must NOT delete in
+        // Run's finally; the legacy in-cache snapshot is ours to clean up.
+        private static bool UsingSidecar => PriorStateSnapshot.Available;
 
         // Recompute verdict for this load, set by RunRecompute and read by the combined metrics
         // load_summary in Run. Null recomputePass means the recompute did not run (flag off /
@@ -68,17 +81,23 @@ namespace Gagarin
 
         // Copy the prior Unified.xml aside before the load deletes it (cache miss) or overwrites
         // it. Runs as a LoadModXML prefix, so it is guaranteed ahead of the deleting postfix.
+        // NO-OP when the sidecar is in use: the prior Unified already survives in the sidecar, so
+        // there is nothing to rescue here (and on a modlist change the live Unified.xml is
+        // already gone by the time this prefix runs — the whole reason the sidecar exists).
         public static void Prefix()
         {
             if (!GagarinPrefs.DirtySetGate)
                 return;
+            if (UsingSidecar)
+                return;
             try
             {
                 string prior = GagarinEnvironmentInfo.UnifiedXmlFilePath;
+                string snapshot = Path.Combine(GagarinEnvironmentInfo.CacheFolderPath, SnapshotFileName);
                 if (File.Exists(prior))
-                    File.Copy(prior, SnapshotPath, overwrite: true);
-                else if (File.Exists(SnapshotPath))
-                    File.Delete(SnapshotPath); // no prior cache this run; clear a stale snapshot
+                    File.Copy(prior, snapshot, overwrite: true);
+                else if (File.Exists(snapshot))
+                    File.Delete(snapshot); // no prior cache this run; clear a stale snapshot
             }
             catch (Exception e)
             {
@@ -158,7 +177,11 @@ namespace Gagarin
             }
             finally
             {
-                try { if (File.Exists(snapshot)) File.Delete(snapshot); } catch { /* best effort */ }
+                // Only clean up our own in-cache snapshot. When reading from the sidecar, the
+                // file is the prior-state copy PriorStateSnapshot owns (and re-writes later this
+                // load) — deleting it would destroy next run's prior, so leave it be.
+                if (!UsingSidecar)
+                    try { if (File.Exists(snapshot)) File.Delete(snapshot); } catch { /* best effort */ }
             }
         }
 
@@ -209,9 +232,14 @@ namespace Gagarin
         private static void RunRecompute(XmlDocument baselineDoc,
             Dictionary<string, string> rebuild, HashSet<string> dirty)
         {
-            // The graph is the prior run's DependencyGraph.json — snapshotted execution paths we
+            // The graph is the PRIOR run's DependencyGraph.json — snapshotted execution paths we
             // trust for UNCHANGED mods' sequences. (Same file DirtySetDiagnostic just consumed.)
-            string graphPath = Path.Combine(GagarinEnvironmentInfo.CacheFolderPath, GraphFileName);
+            // From the sidecar when the toggle is ON, so we get the PRIOR graph rather than the
+            // one ProvenanceRecorder.Save() overwrote in-cache earlier this load (the clobber
+            // race); else the live cache copy, as before.
+            string graphPath = PriorStateSnapshot.Available
+                ? PriorStateSnapshot.PriorGraphPath
+                : Path.Combine(GagarinEnvironmentInfo.CacheFolderPath, GraphFileName);
             if (!File.Exists(graphPath))
             {
                 Log.Warning("GAGARIN: <color=white>Recompute gate</color> skipped — no " +

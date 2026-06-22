@@ -37,6 +37,7 @@
     <Compile Include="..\Core\Incremental\UnifiedCacheDiff.cs" Link="UnifiedCacheDiff.cs" />
     <Compile Include="..\Core\Incremental\UnifiedCacheSplice.cs" Link="UnifiedCacheSplice.cs" />
     <Compile Include="..\Core\Incremental\MetricsLog.cs" Link="MetricsLog.cs" />
+    <Compile Include="..\Core\Incremental\PriorStateSnapshotPaths.cs" Link="PriorStateSnapshotPaths.cs" />
   </ItemGroup>
 
   <ItemGroup>

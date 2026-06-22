@@ -67,6 +67,27 @@ namespace Gagarin
         // (production never sets it, so the log is never written). Not scribed to settings.
         public static bool Metrics = false;
 
+        // MASTER TOGGLE for the incremental-cache representation (default OFF). This is the
+        // runtime switch between "our graph / incremental representation" and the author's
+        // original all-or-nothing cache. It governs the prior-state SIDECAR: when ON, a
+        // successful cache-writing load copies the just-written cache files (ModList.xml,
+        // Unified.xml, AssetsHash.xml, AssetsHashInt.xml, DependencyGraph.json) into a sidecar
+        // directory the author's startup teardown never touches (see PriorStateSnapshot), and
+        // the dirty-set diagnostic + gate read their PRIOR inputs from that sidecar instead of
+        // the live cache files (which OnInitialization deletes/overwrites on a modlist change
+        // BEFORE our LoadModXML prefixes run — the bug this fixes).
+        //
+        // CONTRACT: every edit to the author's ORIGINAL code paths must NO-OP when this is OFF,
+        // so flipping it off restores the original behaviour byte-for-byte. Only the additive
+        // incremental layer (the sidecar capture/read, and later the Piece E full-hit /
+        // incremental / full-miss decision that will live here) is governed by this flag; the
+        // author's deletion lifecycle (Context.IsUsingCache setter, StartupHelper) is untouched.
+        //
+        // This flag is additive to the four dev diagnostics above: those still gate their own
+        // capture/report, but when ON they read their priors from the sidecar this toggle's
+        // capture produced — a clean composition rather than a replacement.
+        public static bool IncrementalCache = false;
+
         // Dev-only: let the live test harness flip the four incremental-cache diagnostic flags
         // at launch via environment variables, instead of requiring a bespoke build with the
         // defaults edited. The static ctor runs on first access to any field (i.e. before the
@@ -81,6 +102,7 @@ namespace Gagarin
         //   GAGARIN_DIRTYSET_GATE        -> DirtySetGate
         //   GAGARIN_DIRTYSET_RECOMPUTE   -> DirtySetRecompute
         //   GAGARIN_METRICS              -> Metrics
+        //   GAGARIN_INCREMENTAL_CACHE    -> IncrementalCache (the master toggle)
         static GagarinPrefs()
         {
             CaptureProvenance  = EnvFlag("GAGARIN_CAPTURE_PROVENANCE",  CaptureProvenance);
@@ -88,6 +110,7 @@ namespace Gagarin
             DirtySetGate       = EnvFlag("GAGARIN_DIRTYSET_GATE",       DirtySetGate);
             DirtySetRecompute  = EnvFlag("GAGARIN_DIRTYSET_RECOMPUTE",  DirtySetRecompute);
             Metrics            = EnvFlag("GAGARIN_METRICS",             Metrics);
+            IncrementalCache   = EnvFlag("GAGARIN_INCREMENTAL_CACHE",   IncrementalCache);
         }
 
         // Returns the env-var override for a flag, or the current value when the var is unset.

@@ -77,11 +77,20 @@ namespace Gagarin
                 return;
             try
             {
-                s_priorHashes = File.Exists(GagarinEnvironmentInfo.HashFilePath)
-                    ? AssetHashingUtility.Load(GagarinEnvironmentInfo.HashFilePath)
+                // Read priors from the sidecar when the master toggle is ON and a sidecar exists
+                // (PriorStateSnapshot), else from the live cache files as before. The sidecar is
+                // the only source that survives OnInitialization's modlist-change teardown — the
+                // live ModList.xml has already been re-dumped to the CURRENT order by then, which
+                // is why reading it here yields seedReorder=0 on a reorder/remove.
+                string hashPath = PriorStateSnapshot.Available
+                    ? PriorStateSnapshot.PriorHashPath : GagarinEnvironmentInfo.HashFilePath;
+                string orderPath = PriorStateSnapshot.Available
+                    ? PriorStateSnapshot.PriorModListPath : GagarinEnvironmentInfo.ModListFilePath;
+                s_priorHashes = File.Exists(hashPath)
+                    ? AssetHashingUtility.Load(hashPath)
                     : null;
-                s_priorOrder = File.Exists(GagarinEnvironmentInfo.ModListFilePath)
-                    ? RunningModsSetUtility.Load(GagarinEnvironmentInfo.ModListFilePath)
+                s_priorOrder = File.Exists(orderPath)
+                    ? RunningModsSetUtility.Load(orderPath)
                     : null;
             }
             catch (Exception e)
@@ -116,7 +125,12 @@ namespace Gagarin
             if (!GagarinPrefs.DirtySetDiagnostic)
                 return;
 
-            string graphPath = Path.Combine(GagarinEnvironmentInfo.CacheFolderPath, GraphFileName);
+            // Prior dependency graph: from the sidecar when the toggle is ON (so we read the
+            // PRIOR run's graph, not the one ProvenanceRecorder.Save() overwrites mid-load),
+            // else the live cache copy as before.
+            string graphPath = PriorStateSnapshot.Available
+                ? PriorStateSnapshot.PriorGraphPath
+                : Path.Combine(GagarinEnvironmentInfo.CacheFolderPath, GraphFileName);
             if (s_priorHashes == null || s_priorOrder == null || !File.Exists(graphPath))
                 return; // no prior build to diff against
 

@@ -288,6 +288,51 @@ Wire incremental recompute into Gagarin's real cache path.
 - **Dependency**: D (persistence + mutate) and a way to drive RimWorld's apply over just
   the dirty patches/nodes.
 
+### Prior-state sidecar + master toggle (2026-06-21, branch `feat/prior-state-sidecar`)
+
+**Bug fixed:** the dirty-set diagnostic and zero-diff gate never fired on a real mod
+add/remove/reorder — the exact loads we built them for. They read "prior load" inputs from
+the author's LIVE cache files in a `LoadModXML` PREFIX, but the author tears those files
+down FIRST, in `[Main.OnInitialization]` (`StartupHelper.StartUpStarted`), before any of our
+patches run:
+- On `ModListChanged`, `Context.IsUsingCache = false` → the `Context.cs` setter DELETES
+  `ModList.xml` + `Unified.xml`, then `StartUpStarted` RE-DUMPS the CURRENT modlist to
+  `ModList.xml`.
+- So by our prefix: prior `Unified.xml` is gone (gate `Run()` returns at `!File.Exists`, no
+  report) and `ModList.xml` already holds the NEW order (`DirtySetComputer` reorder/remove
+  seed is blind → `seedReorder=0`).
+- `ProvenanceRecorder.Save()` also OVERWRITES `DependencyGraph.json` mid-load before the
+  gate's recompute reads it (clobber race).
+The live harness missed all this because it only swaps a patch file with the modlist
+UNCHANGED, so `IsUsingCache` stays true through OnInitialization.
+
+**Fix (does NOT touch the author's deletion lifecycle):** give the incremental layer its own
+prior-state SIDECAR the author never deletes. At the END of a successful cache-writing load
+(`ParseAndProcessXML` postfix, right after `CachedDefHelper.Save()` + `ProvenanceRecorder.Save()`
++ `DirtySetGate.Run()`), `PriorStateSnapshot.Capture()` copies the just-written `ModList.xml`,
+`Unified.xml`, `AssetsHash.xml`, `AssetsHashInt.xml`, `DependencyGraph.json` into
+`…/MissileGirl/Incremental/prior/` — a SIBLING of `…/MissileGirl/Cache/`, outside the author's
+delete scope (the author only ever deletes files INSIDE `Cache/`). So the sidecar always
+reflects the PRIOR load and survives to next run. `DirtySetDiagnostic` (prior hashes/order +
+graph) and `DirtySetGate` (prior `Unified.xml` + graph) read from the sidecar when it exists,
+which fixes the gate-not-firing AND the `seedReorder=0` blindness AND removes the
+`ProvenanceRecorder.Save()` clobber race (gate reads the sidecar graph, not the live one).
+Graceful skip on first-ever load (no sidecar yet), exactly as today.
+
+**Master toggle `GagarinPrefs.IncrementalCache`** (default OFF; env `GAGARIN_INCREMENTAL_CACHE`).
+The runtime switch between "our graph / incremental representation" and the author's original
+all-or-nothing cache. It gates the sidecar capture + the diagnostic/gate's redirect to it.
+CONTRACT: every edit to the author's ORIGINAL code paths NO-OPs when OFF, so flipping it off
+restores original behaviour byte-for-byte (the author's deletion lifecycle is untouched). This
+flag is the future home of the Piece E three-way full-hit / incremental / full-miss decision.
+Additive to the four `GAGARIN_DIRTYSET_*` / `CAPTURE` diagnostics: those still gate their own
+report, but when ON they read priors from the sidecar this toggle's capture produced.
+
+For the live re-test the owner exports the four existing diagnostic flags PLUS
+`GAGARIN_INCREMENTAL_CACHE=1`. NB the sidecar bootstraps: the FIRST toggled-on changed load
+still skips (no prior sidecar yet); it is populated that run and the gate fires from the next
+changed load on.
+
 ---
 
 ## What the Piece A capture results are good for (it's a ubiquitous dataset)
