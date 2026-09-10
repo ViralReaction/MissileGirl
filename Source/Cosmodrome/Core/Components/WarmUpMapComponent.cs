@@ -86,17 +86,17 @@ namespace MissileGirl
         public override void MapComponentOnGUI()
         {
             base.MapComponentOnGUI();
-            if (finished || !started || !settingsBeingStashed || !showUI)
-                return;
-            if (!RocketPrefs.ShowWarmUpPopup)
-                return;
-            int height = 65;
-            int width = 450;
-            Rect rect = new Rect(UI.screenWidth / 2 - ((float)width / 2), UI.screenHeight / 5, width, height);
-            GUIUtility.ExecuteSafeGUIAction(() =>
-            {
-                DoPopupContent(rect);
-            });
+            // if (finished || !started || !settingsBeingStashed || !showUI)
+            //     return;
+            // if (!RocketPrefs.ShowWarmUpPopup)
+            //     return;
+            // int height = 65;
+            // int width = 450;
+            // Rect rect = new Rect(UI.screenWidth / 2 - ((float)width / 2), UI.screenHeight / 5, width, height);
+            // GUIUtility.ExecuteSafeGUIAction(() =>
+            // {
+            //     DoPopupContent(rect);
+            // });
         }
 
         public override void MapComponentTick()
@@ -106,8 +106,8 @@ namespace MissileGirl
             {
                 Logger.Message("MissileGirl: Position verfication started!");
                 PopPawnsPosition();
-                if (RocketPrefs.PauseAfterWarmup && !Find.TickManager.Paused)
-                    Find.TickManager.Pause();
+                // if (RocketPrefs.PauseAfterWarmup && !Find.TickManager.Paused)
+                //     Find.TickManager.Pause();
             }
             if (finished)
                 return;
