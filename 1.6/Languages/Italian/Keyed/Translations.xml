@@ -45,6 +45,7 @@
     </MissileGirl.Adaptive.Description>
     <MissileGirl.EnableGearStatCaching>Abilitare la cache delle statistiche dell'Attrezzatura
     </MissileGirl.EnableGearStatCaching>
+    <MissileGirl.DebuggingOption>Opzioni di debug</MissileGirl.DebuggingOption>
     <MissileGirl.Debugging>Abilita la Modalita di Debug</MissileGirl.Debugging>
     <MissileGirl.Debugging.Description>Solamente per Utenti Avanzati e Sviluppatori delle Mod.
     </MissileGirl.Debugging.Description>

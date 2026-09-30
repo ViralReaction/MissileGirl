@@ -105,6 +105,7 @@
     <MissileGirl.Adaptive.Description>Enable for 30 minutes after creating a new save or changing your mod list.
     </MissileGirl.Adaptive.Description>
     <MissileGirl.EnableGearStatCaching>Enable gear stat caching</MissileGirl.EnableGearStatCaching>
+    <MissileGirl.DebuggingOption>Debugging Options</MissileGirl.DebuggingOption>
     <MissileGirl.Debugging>Enable debugging</MissileGirl.Debugging>
     <MissileGirl.Debugging.Description>Only for advanced users and modders</MissileGirl.Debugging.Description>
     <MissileGirl.OptimizationSettings>Vanilla Optimizations</MissileGirl.OptimizationSettings>
@@ -143,6 +144,6 @@
     <Gagarin.CacheRetentionTime>Max Cache Retention Time</Gagarin.CacheRetentionTime>
     <Gagarin.Tip>As long as load time optimization is active it will cache every XML Def. This allows you to skip XML patching. You can disable it from the main menu in MissileGirl</Gagarin.Tip>
     <Gagarin.ClearCache>Clear cache</Gagarin.ClearCache>
-    <Gagarin.ClearCache.Description>Clearing the cache can help resolve XML caching issues in case of a mod update as well as allowing new textures to be cached.</Gagarin.ClearCache.Description>
+    <Gagarin.ClearCache.Description>Clearing the cache can help resolve XML caching issues in case of a mod update.</Gagarin.ClearCache.Description>
 
 </LanguageData>

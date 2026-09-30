@@ -39,6 +39,7 @@
         начали новую игру.
     </MissileGirl.Adaptive.Description>
     <MissileGirl.EnableGearStatCaching>Включить кэширование статов снаряжения</MissileGirl.EnableGearStatCaching>
+    <MissileGirl.DebuggingOption>Параметры отладки</MissileGirl.DebuggingOption>
     <MissileGirl.Debugging>Включить дебаг режим</MissileGirl.Debugging>
     <MissileGirl.Debugging.Description>Только для продвинутых пользователей и моддеров
     </MissileGirl.Debugging.Description>
@@ -64,4 +65,16 @@
     <Proton.AlertName>Название уведомления</Proton.AlertName>
     <Proton.Avg>Среднее время выполнения</Proton.Avg>
     <Proton.TimeSinceLast>Прошло времени с последнего обновления</Proton.TimeSinceLast>
+
+    <!-- Gagarin -->
+    <Gagarin.ParsingReports>MissileGirl проверяет, нет ли дубликатов баз или определений</Gagarin.ParsingReports>
+    <Gagarin.Tab>Оптимизация времени загрузки</Gagarin.Tab>
+    <Gagarin.Expiry>Срок действия кэша «Гагарин» истечет через: {0} дней</Gagarin.Expiry>
+    <Gagarin.CacheExpires>Срок действия кэша</Gagarin.CacheExpires>
+    <Gagarin.CacheExpires.Desc>Определяет, будет ли срок действия кэша когда-либо истекать в зависимости от времени. Это не мешает кэшу, восстанавливаемому после сбоя, обнаруживать изменения в модах.</Gagarin.CacheExpires.Desc>
+    <Gagarin.CacheRetentionTime>Максимальное время хранения в кэше</Gagarin.CacheRetentionTime>
+    <Gagarin.Tip>Пока включена оптимизация времени загрузки, в кэш будут сохраняться все XML-определения. Это позволяет обойтись без исправления XML-файлов. Эту функцию можно отключить в главном меню MissileGirl.</Gagarin.Tip>
+    <Gagarin.ClearCache>Очистить кэш</Gagarin.ClearCache>
+    <Gagarin.ClearCache.Description>Очистка кэша может помочь устранить проблемы с кэшированием XML при обновлении мода.</Gagarin.ClearCache.Description>
+
 </LanguageData>

@@ -2,6 +2,7 @@
 <LanguageData>
     <!-- General -->
     <MissileGirl.Settings>설정</MissileGirl.Settings>
+    <MissileGirl.DebuggingOption>디버깅 옵션</MissileGirl.DebuggingOption>
     <MissileGirl.Settings.Debugging>디버그 설정</MissileGirl.Settings.Debugging>
     <MissileGirl.Collapsible.Expand>[펼치기]</MissileGirl.Collapsible.Expand>
     <MissileGirl.Collapsible.Hide>[숨기기]</MissileGirl.Collapsible.Hide>

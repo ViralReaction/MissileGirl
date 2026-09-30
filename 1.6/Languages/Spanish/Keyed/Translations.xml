@@ -78,6 +78,7 @@
     </MissileGirl.Adaptive.Description>
     <MissileGirl.EnableGearStatCaching>Activar almacenamiento de estadísticas de equipo
     </MissileGirl.EnableGearStatCaching>
+    <MissileGirl.DebuggingOption>Opciones de depuración</MissileGirl.DebuggingOption>
     <MissileGirl.Debugging>Activar debugging</MissileGirl.Debugging>
     <MissileGirl.Debugging.Description>Solo para usuarios avanzados y modders</MissileGirl.Debugging.Description>
     <!-- Soyuz Soyuz.TabContent_DilationSettings -->

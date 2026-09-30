@@ -75,6 +75,7 @@
     </MissileGirl.Adaptive.Description>
     <MissileGirl.EnableGearStatCaching>Habilitar cacheamento de stats de equipamentos
     </MissileGirl.EnableGearStatCaching>
+    <MissileGirl.DebuggingOption>Opções de depuração</MissileGirl.DebuggingOption>
     <MissileGirl.Debugging>Habilitar debugging</MissileGirl.Debugging>
     <MissileGirl.Debugging.Description>Apenas para usuários avançados e modders</MissileGirl.Debugging.Description>
 

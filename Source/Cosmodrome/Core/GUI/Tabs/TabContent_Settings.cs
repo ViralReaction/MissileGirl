@@ -174,7 +174,7 @@ namespace MissileGirl.Tabs
                     inRect.yMin += 5;
                 }
 
-                _debug.Begin(inRect, "Debugging options");
+                _debug.Begin(inRect, "MissileGirl.DebuggingOption".Translate());
                 if (_debug.CheckboxLabeled("MissileGirl.Debugging".Translate(), ref RocketDebugPrefs.Debug, "MissileGirl.Debugging.Description".Translate()) && !RocketDebugPrefs.Debug)
                 {
                     RocketMod.ResetRocketDebugPrefs();
